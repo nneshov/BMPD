@@ -1,0 +1,24 @@
+mode: train
+data_dir: data/5GmmGesture
+cache_dir: cache
+checkpoint_dir: checkpoints
+output_dir: outputs
+device: cuda
+backbones: [litecnn, resnet18]
+methods: [framediff, bmpd]
+seeds: [42, 43, 44]
+users: [1, 2, 3, 4, 5, 6, 7, 8]
+tau: 0.10
+epsilon: 0.000001
+num_workers: 0
+threads: 8
+litecnn:
+  epochs: 30
+  learning_rate: 0.001
+  batch_size: 32
+  patience: null
+resnet18:
+  epochs: 150
+  learning_rate: 0.0003
+  batch_size: 32
+  patience: 20
